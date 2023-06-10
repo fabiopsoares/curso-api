@@ -89,10 +89,6 @@ class UserServiceImplTest {
     }
 
     @Test
-    void findAll() {
-    }
-
-    @Test
     void whenCreateThenReturnSuccess() {
 
         when(repository.save(any())).thenReturn(user);
