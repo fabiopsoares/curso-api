@@ -11,6 +11,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 @ToString
 @Entity
+@Table(name="users")
 public class User {
 
     @Id
