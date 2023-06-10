@@ -3,7 +3,7 @@ package br.com.cursoapi.api.services.impl;
 import br.com.cursoapi.api.domain.User;
 import br.com.cursoapi.api.domain.dto.UserDTO;
 import br.com.cursoapi.api.repositories.UserRepository;
-import br.com.cursoapi.api.services.exceptions.DataIntegratyViolationException;
+import br.com.cursoapi.api.services.exceptions.DataIntegrityViolationException;
 import br.com.cursoapi.api.services.exceptions.ObjectNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -111,7 +111,7 @@ class UserServiceImplTest {
             optionalUser.get().setId(2);
             service.create(userDTO);
         } catch (Exception ex){
-            assertEquals(DataIntegratyViolationException.class, ex.getClass());
+            assertEquals(DataIntegrityViolationException.class, ex.getClass());
             assertEquals(E_MAIL_JA_CADASTRADO_NO_SISTEMA, ex.getMessage());
         }
     }
@@ -139,7 +139,7 @@ class UserServiceImplTest {
             optionalUser.get().setId(2);
             service.update(userDTO);
         } catch (Exception ex){
-            assertEquals(DataIntegratyViolationException.class, ex.getClass());
+            assertEquals(DataIntegrityViolationException.class, ex.getClass());
             assertEquals(E_MAIL_JA_CADASTRADO_NO_SISTEMA, ex.getMessage());
         }
     }
