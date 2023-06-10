@@ -3,6 +3,7 @@ package br.com.cursoapi.api.services.impl;
 import br.com.cursoapi.api.domain.User;
 import br.com.cursoapi.api.repositories.UserRepository;
 import br.com.cursoapi.api.services.UserService;
+import br.com.cursoapi.api.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,6 @@ public class UserServiceImpl implements UserService {
 
         Optional<User> obj = repository.findById(id);
 
-        return obj.orElse(null);
+        return obj.orElseThrow(()-> new ObjectNotFoundException("Objeto não encontrado"));
     }
 }
